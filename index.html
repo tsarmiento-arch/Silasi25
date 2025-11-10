@@ -1,220 +1,149 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Silasi.net — Generador Musical</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Silasi | Escenarios para la Improvisación</title>
   <style>
-    :root {
-      --violeta: #8e80ff;
-      --fondo1: #1a162f;
-      --fondo2: #2c2552;
-      --texto: #f5f3ff;
-    }
-
-    * { box-sizing: border-box; }
-
     body {
-      font-family: "Poppins", sans-serif;
-      background: radial-gradient(circle at top, var(--fondo2), var(--fondo1));
-      color: var(--texto);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #4a148c, #7b1fa2);
+      color: #fff;
       margin: 0;
-      padding: 2rem;
-    }
-
-    h1 {
-      font-family: "Orbitron", sans-serif;
-      font-size: 2.5rem;
-      color: var(--violeta);
-      text-shadow: 0 0 15px rgba(150,130,255,0.7);
-      animation: brillo 3s infinite ease-in-out;
+      padding: 0;
       text-align: center;
     }
 
-    @keyframes brillo {
-      0%, 100% { text-shadow: 0 0 10px var(--violeta), 0 0 20px var(--violeta); }
-      50% { text-shadow: 0 0 25px #b59cff, 0 0 40px #b59cff; }
+    header {
+      background-color: rgba(0,0,0,0.3);
+      padding: 1.5em 0;
+      font-size: 1.8em;
+      font-weight: bold;
+      letter-spacing: 1px;
     }
 
-    .subtitle {
-      opacity: 0.8;
-      margin-top: 0.3rem;
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
-      text-align: center;
-    }
-
-    .panel {
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
-      padding: 2rem;
-      width: 100%;
-      max-width: 480px;
-      text-align: center;
-      box-shadow: 0 0 20px rgba(150,130,255,0.15);
-      animation: fadein 0.6s ease-out;
-    }
-
-    @keyframes fadein {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .grupo-opciones {
-      text-align: left;
-      margin-bottom: 1.2rem;
-      font-size: 0.95rem;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 0.4rem;
-      cursor: pointer;
-    }
-
-    input[type="checkbox"] {
-      transform: scale(1.2);
-      margin-right: 0.4rem;
-      accent-color: var(--violeta);
+    main {
+      padding: 2em;
+      max-width: 800px;
+      margin: auto;
     }
 
     button {
-      background: linear-gradient(90deg, #7b5cf0, #a78bfa);
-      color: white;
+      background-color: #ffca28;
       border: none;
-      padding: 0.9rem 1.6rem;
-      border-radius: 10px;
+      color: #4a148c;
+      padding: 0.8em 1.5em;
+      border-radius: 12px;
       cursor: pointer;
-      font-size: 1rem;
-      transition: 0.3s;
-      box-shadow: 0 0 10px rgba(155, 130, 255, 0.4);
-      margin: 0.3rem;
+      font-size: 1.1em;
+      font-weight: bold;
+      transition: 0.2s;
     }
 
     button:hover {
+      background-color: #ffe082;
       transform: scale(1.05);
-      box-shadow: 0 0 18px rgba(170, 150, 255, 0.6);
     }
 
-    .resultado {
-      margin-top: 1.5rem;
-      background: rgba(255,255,255,0.08);
-      padding: 1rem 1.2rem;
+    #propuesta {
+      margin-top: 2em;
+      font-size: 1.3em;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 1.5em;
       border-radius: 12px;
-      text-align: left;
-      font-size: 1rem;
-      line-height: 1.6;
-      white-space: pre-line;
+      min-height: 100px;
+    }
+
+    #imagen-aleatoria {
+      margin-top: 1.5em;
+      border-radius: 12px;
+      max-width: 100%;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
     }
 
     footer {
-      margin-top: 2rem;
-      opacity: 0.7;
-      font-size: 0.8rem;
-      text-align: center;
-      max-width: 700px;
+      margin-top: 3em;
+      padding: 2em 0;
+      font-size: 0.9em;
+      background-color: rgba(0,0,0,0.2);
     }
 
-    @media (max-width: 600px) {
-      h1 { font-size: 2rem; }
-      .panel { padding: 1.2rem; }
+    footer img {
+      width: 100px;
+      margin-bottom: 0.5em;
+    }
+
+    a {
+      color: #ffca28;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <h1>🎶 Silasi.net</h1>
-  <p class="subtitle">Generador personalizable de propuestas musicales</p>
+  <header>
+    SILASI — Escenarios para la Improvisación
+  </header>
 
-  <div class="panel">
-    <div class="grupo-opciones">
-      <p><strong>Seleccioná los grupos a incluir:</strong></p>
-      <label><input type="checkbox" id="chk-melodia" checked>Melodía</label>
-      <label><input type="checkbox" id="chk-tonalidad" checked>Tonalidad</label>
-      <label><input type="checkbox" id="chk-dinamica" checked>Dinámica</label>
-      <label><input type="checkbox" id="chk-metrica" checked>Métrica</label>
-      <label><input type="checkbox" id="chk-subjetividad" checked>Subjetividad</label>
-    </div>
+  <main>
+    <p>Silasi es una propuesta digital orientada a la práctica y la educación musical. Cada clic genera un nuevo escenario para improvisar, componer o explorar la creatividad.</p>
 
-    <button id="btn-generar">🎲 Generar propuesta</button>
-    <button id="btn-varias">✨ Generar 5 propuestas</button>
-    <button id="btn-copiar">📋 Copiar</button>
-    <button id="btn-limpiar">🧹 Limpiar</button>
+    <button onclick="generarPropuesta()">Generar propuesta</button>
 
-    <div id="resultado" class="resultado" style="display:none;"></div>
-  </div>
+    <div id="propuesta"></div>
+    <img id="imagen-aleatoria" src="" alt="" style="display:none;">
+  </main>
 
   <footer>
-    <p>© 2025 Silasi.net</p>
-    <p>Página web realizada por <strong>Camila Guzmán, Juan Lavadenz y Tobías Sarmiento</strong>, estudiantes del Profesorado en Educación Musical de la <strong>Universidad Nacional de Córdoba</strong> para la cátedra de <strong>Tecnología Educativa</strong>.<br>
-    Sitio web programado con ayuda de inteligencia artificial (<strong>ChatGPT</strong>).</p>
+    <img src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" alt="Licencia Creative Commons">
+    <p>Este recurso está bajo una <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" target="_blank">Licencia Creative Commons Atribución-CompartirIgual 4.0 Internacional</a>.</p>
+    <p>Ver o editar el código en <a href="https://github.com/tsarmiento-arch/Silasi25" target="_blank">GitHub</a>.</p>
   </footer>
 
   <script>
-    const melodias = ["1 nota", "2 notas", "3 notas", "4 notas", "5 notas", "6 notas", "7 notas"];
-    const tonalidades = [
-      "Do M", "Do♯ M", "Re M", "Re♯ M", "Mi M", "Fa M", "Fa♯ M", "Sol M", "Sol♯ M", "La M", "La♯ M", "Si M",
-      "Do m", "Do♯ m", "Re m", "Re♯ m", "Mi m", "Fa m", "Fa♯ m", "Sol m", "Sol♯ m", "La m", "La♯ m", "Si m"
-    ];
-    const dinamicas = ["piano (p)", "mezzo piano (mp)", "mezzo forte (mf)", "forte (f)"];
-    const metricas = ["2/4", "3/4", "4/4", "5/4", "6/8", "7/8"];
-    const subjetividades = [
-      "alegre", "melancólica", "misteriosa", "agresiva", "tranquila",
-      "esperanzada", "nostálgica", "lúdica", "solemne", "caótica"
+    const propuestas = [
+      "Improvisá usando solo una cuerda o una nota.",
+      "Componé una melodía que imite el ritmo de una palabra elegida.",
+      "Tocá en diálogo con los sonidos del entorno.",
+      "Usá solo dos alturas y explorá el ritmo.",
+      "Construí una textura sonora con tu instrumento y la voz.",
+      "Inventá una pieza que empiece en silencio.",
+      "Tocá algo inspirado en un recuerdo o sensación.",
+      "Creá una melodía con movimientos ascendentes solamente.",
+      "Improvisá con un compañero alternando notas o gestos.",
+      "Usá el azar: tirá una moneda o dado y dejá que guíe tus decisiones."
     ];
 
-    const resultadoDiv = document.getElementById("resultado");
-
-    function elegirAleatorio(lista) {
-      return lista[Math.floor(Math.random() * lista.length)];
-    }
+    const imagenes = [
+      "imagenes/1.jpg",
+      "imagenes/2.jpg",
+      "imagenes/3.jpg",
+      "imagenes/4.jpg",
+      "imagenes/5.jpg",
+      "imagenes/6.jpg",
+      "imagenes/7.jpg",
+      "imagenes/8.jpg",
+      "imagenes/9.jpg",
+      "imagenes/10.jpg",
+      "imagenes/11.jpg",
+      "imagenes/12.jpg",
+      "imagenes/13.jpg",
+      "imagenes/14.jpg",
+      "imagenes/15.jpg"
+    ];
 
     function generarPropuesta() {
-      let texto = "";
-      if (document.getElementById("chk-melodia").checked)
-        texto += `🎵 Melodía: ${elegirAleatorio(melodias)}\n`;
-      if (document.getElementById("chk-tonalidad").checked)
-        texto += `🎼 Tonalidad: ${elegirAleatorio(tonalidades)}\n`;
-      if (document.getElementById("chk-dinamica").checked)
-        texto += `🎚️ Dinámica: ${elegirAleatorio(dinamicas)}\n`;
-      if (document.getElementById("chk-metrica").checked)
-        texto += `🎵 Métrica: ${elegirAleatorio(metricas)}\n`;
-      if (document.getElementById("chk-subjetividad").checked)
-        texto += `🎭 Subjetividad: ${elegirAleatorio(subjetividades)}\n`;
-      if (texto === "") texto = "⚠️ No seleccionaste ningún grupo.";
-      return texto;
+      const propuesta = propuestas[Math.floor(Math.random() * propuestas.length)];
+      const imagen = imagenes[Math.floor(Math.random() * imagenes.length)];
+
+      document.getElementById("propuesta").innerText = propuesta;
+      const imgElement = document.getElementById("imagen-aleatoria");
+      imgElement.src = imagen;
+      imgElement.style.display = "block";
     }
-
-    document.getElementById("btn-generar").addEventListener("click", () => {
-      resultadoDiv.textContent = generarPropuesta();
-      resultadoDiv.style.display = "block";
-    });
-
-    document.getElementById("btn-varias").addEventListener("click", () => {
-      let texto = "";
-      for (let i = 1; i <= 5; i++) {
-        texto += `🔹 Propuesta ${i}:\n${generarPropuesta()}\n`;
-      }
-      resultadoDiv.textContent = texto.trim();
-      resultadoDiv.style.display = "block";
-    });
-
-    document.getElementById("btn-copiar").addEventListener("click", async () => {
-      if (resultadoDiv.textContent.trim() === "") return alert("No hay resultados para copiar.");
-      await navigator.clipboard.writeText(resultadoDiv.textContent);
-      alert("Propuesta copiada al portapapeles 🎶");
-    });
-
-    document.getElementById("btn-limpiar").addEventListener("click", () => {
-      resultadoDiv.textContent = "";
-      resultadoDiv.style.display = "none";
-    });
   </script>
 </body>
 </html>
